@@ -13,21 +13,18 @@ def is_a_rotation(s1, s2):
     counter_s2 = 0
     for x in range(s1_size):
         if s1[counter_s1] == s2[counter_s2]:#idea is to know how many letters match, to see how many letters in the array
-            print('\n')
-            print(s1[counter_s1])
-            print(s2[counter_s2])
-            print('same')
+
             counter_s1+=1
             counter_s2+=1
         else:
             counter_s2 = 0# because they are equal length, if the letters do not match we don't count them and if they stop matching we reset it, because it's not the same word
             counter_s1 += 1
 
-    if counter_s2:
-        print('counter_s2 ', counter_s2)
+    if counter_s2:#if any letters matched by the end , we must check if the rest of letters that did not match are a Substring. If yes then they are the same since lenght of string are the same if not then 1 or more letters differ and they are not rotations.
+        #print('counter_s2 ', counter_s2)
         return s2[counter_s2:] in s1 #isSubstring equivalent
     else:
-        print('counter_s2 ', counter_s2)
+        #print('counter_s2 ', counter_s2)
         return False
 
 s1 = 'hello'
@@ -43,7 +40,7 @@ s1 = 'waterbottle'
 s2 = 'erbottlewat'
 print(is_a_rotation(s1, s2))
 
-print('\n')
+
 s1 = 'waterbottle'
 s2 = 'erboxtlewat'
 print(is_a_rotation(s1, s2))
